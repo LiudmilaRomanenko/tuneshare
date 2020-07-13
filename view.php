@@ -11,7 +11,13 @@
       </nav>
     </div>
   </header>
-    <?php
+    <?php session_start();
+
+    if(isset($_SESSION['name'])) {
+      echo "<p> Hey There, " . $_SESSION['name']. "!";
+    } else {
+      echo "<p> Hey There ";
+    }
     try {
     //connect to our db 
     require_once('connect.php'); 
@@ -42,8 +48,10 @@
     }
     catch(PDOException $e) {
         $error_message = $e->getMessage(); 
-        echo "<p> $error message </p>"; 
+        echo "<p> $error_message </p>"; 
     }
+    
     ?>
+    <a href="destroy.php"> Forget Me! </a>
     </main>
     <?php require_once('footer.php'); ?>

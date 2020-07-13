@@ -13,7 +13,7 @@
   </header>
 <h1> TuneShare - Share Your Fave Tunes & Join The Community </h1>
 <main>
-    <?php
+    <?php session_start();
 
     $first_name = filter_input(INPUT_POST, 'fname');
     $last_name = filter_input(INPUT_POST, 'lname');
@@ -30,6 +30,13 @@
     $id = null;
     $id = filter_input(INPUT_POST, 'user_id');
 
+    $_SESSION['name'] = $first_name;
+
+    if(isset($_SESSION['name'])) {
+        echo "<p> Thank you, " . $_SESSION['name']. "!";
+    } else {
+        echo "<p> Thanks! ";
+    }
     //set up a flag variable
     $ok = true;
 

@@ -100,5 +100,6 @@
         </div>
         <input type="submit" name="submit" value="Submit" class="btn">
       </form>
+      <a href="destroy.php"> Forget Me! </a>
     </main>
 <?php require_once('footer.php'); ?>
